@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "strict": true,
+    "module": "es2015",
+    "moduleResolution": "node"
+  },
+  "include": [
+    "./src/common/types",
+    "node_modules/element-ui",
+    "node_modules/vue-router"
+  ]
+}
