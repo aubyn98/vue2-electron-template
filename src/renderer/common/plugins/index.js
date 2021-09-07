@@ -1,5 +1,4 @@
 import apis from 'apis'
-import utils from 'utils'
 import comp from 'comp'
 export default {
   install(app) {
@@ -10,6 +9,6 @@ export default {
         plugins(pluginPath).default(app)
       }
     })
-    app.use(apis).use(utils).use(comp)
+    app.use(apis).use(comp)
   },
 }
