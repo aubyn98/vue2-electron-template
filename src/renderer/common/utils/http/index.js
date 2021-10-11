@@ -83,7 +83,7 @@ export function request(url, method, params = {}, config = {}, options = { qs: t
   return http({
     url,
     method,
-    [isPost ? 'data' : 'params']: params,
+    [isPost ? 'data' : 'params']: isPost ? params : new URLSearchParams(params),
     transformRequest,
     ...config,
   })
