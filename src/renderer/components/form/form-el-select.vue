@@ -2,7 +2,15 @@
   <el-select
     class="form-el-select"
     popper-class="form-el-option-wraper"
-    :style="{ width, '--height': height, '--line-height': lineHeight, '--padding': padding, '--font-size': fontSize, '--color': color }"
+    :style="{
+      width,
+      '--height': height,
+      '--line-height': lineHeight,
+      '--padding': padding,
+      '--font-size': fontSize,
+      '--color': color,
+      '--focus-color': focusColor || color,
+    }"
     v-bind="$attrs"
     v-on="$listeners"
   >
@@ -36,6 +44,10 @@ export default {
       type: String,
       default: '#505050',
     },
+    focusColor: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>
@@ -44,6 +56,7 @@ export default {
 .form-el-select::v-deep.el-select {
   $border-color: #f0f0f0;
   @mixin Pseudo {
+    height: var(--height);
     color: var(--color);
     font-size: var(--font-size);
     line-height: var(--line-height);
@@ -51,6 +64,7 @@ export default {
     &,
     &:hover,
     &:focus {
+      color: var(--focus-color);
       border-color: $border-color;
     }
     &::placeholder {
@@ -63,7 +77,6 @@ export default {
       color: #808080;
     }
     .el-input__inner {
-      height: var(--height);
       @include Pseudo;
     }
     &.is-disabled {

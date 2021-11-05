@@ -1,6 +1,14 @@
 <template>
   <el-input
-    :style="{ width, '--height': height, '--line-height': lineHeight, '--padding': padding, '--font-size': fontSize, '--color': color }"
+    :style="{
+      width,
+      '--height': height,
+      '--line-height': lineHeight,
+      '--padding': padding,
+      '--font-size': fontSize,
+      '--color': color,
+      '--focus-color': focusColor || color,
+    }"
     class="form-el-input"
     v-bind="$attrs"
     v-on="$listeners"
@@ -33,6 +41,10 @@ export default {
       type: String,
       default: '#505050',
     },
+    focusColor: {
+      type: String,
+      default: '',
+    },
   },
 }
 </script>
@@ -41,6 +53,7 @@ export default {
 ::v-deep.form-el-input {
   $border-color: #f0f0f0;
   @mixin Pseudo {
+    height: var(--height);
     color: var(--color);
     font-size: var(--font-size);
     line-height: var(--line-height);
@@ -48,6 +61,7 @@ export default {
     &,
     &:hover,
     &:focus {
+      color: var(--focus-color);
       border-color: $border-color;
     }
     &::placeholder {
@@ -57,7 +71,6 @@ export default {
   }
   &.el-input {
     .el-input__inner {
-      height: var(--height);
       @include Pseudo;
     }
     &.is-disabled {
@@ -68,7 +81,6 @@ export default {
   }
   &.el-textarea {
     .el-textarea__inner {
-      height: var(--height);
       @include Pseudo;
     }
     &.is-disabled {
