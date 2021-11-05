@@ -94,6 +94,7 @@ export default {
 .form-el-option-wraper.el-select-dropdown.el-popper {
   margin: 0;
   border: none;
+  padding: 6px 0;
   .popper__arrow {
     display: none;
   }
@@ -102,6 +103,7 @@ export default {
   .el-select-dropdown__wrap {
   }
   .el-select-dropdown__list {
+    padding: 0;
   }
   .el-select-dropdown__item {
     color: #505050;
