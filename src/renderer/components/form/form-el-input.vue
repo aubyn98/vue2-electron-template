@@ -61,8 +61,11 @@ export default {
     &,
     &:hover,
     &:focus {
-      color: var(--focus-color);
       border-color: $border-color;
+    }
+    &:hover,
+    &:focus {
+      color: var(--focus-color);
     }
     &::placeholder {
       font-size: var(--font-size);
