@@ -51,6 +51,7 @@ export default {
       border-color: $border-color;
     }
     &::placeholder {
+      font-size: var(--font-size);
       color: #b2b2b2;
     }
   }
