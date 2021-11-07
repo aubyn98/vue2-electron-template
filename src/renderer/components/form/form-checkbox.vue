@@ -1,5 +1,5 @@
 <template>
-  <div class="form-checkbox pointer" :style="{ lineHeight: width }" @click="change">
+  <div class="form-checkbox pointer" :class="{ _disabled: disabled }" :style="{ lineHeight: width }" @click="!disabled && change()">
     <quick-img :style="{ width, height: width }" class="_icon" name="icon_gxk" v-show="!value" />
     <quick-img :style="{ width, height: width }" class="_icon" name="icon_gxk2" v-show="value" />
     <label class="_label" :style="{ fontSize, marginLeft: labelMrl, color }" v-if="label">{{ label }}</label>
@@ -11,6 +11,10 @@ export default {
   props: {
     value: {
       type: [Boolean, String],
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
       default: false,
     },
     width: {
@@ -51,6 +55,10 @@ export default {
   align-items: center;
   font-weight: 400;
   font-size: 0;
+  &._disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
   ._icon {
     height: 100%;
     width: 100%;
