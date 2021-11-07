@@ -16,6 +16,7 @@
       class="_custom-header select-none"
       :class="{ _border: !headerShadow, _shadow: headerShadow, _move: drag }"
       :style="headerStyle"
+      v-if="header"
     >
       <slot name="header">
         <div @mousedown.stop class="_title">{{ title }}</div>
@@ -75,6 +76,10 @@ export default {
       default: () => ({}),
     },
     showClose: {
+      type: Boolean,
+      default: true,
+    },
+    header: {
       type: Boolean,
       default: true,
     },
