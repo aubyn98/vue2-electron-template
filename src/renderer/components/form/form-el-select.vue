@@ -10,6 +10,7 @@
       '--font-size': fontSize,
       '--color': color,
       '--focus-color': focusColor || color,
+      '--border-radius': borderRadius,
     }"
     v-bind="$attrs"
     v-on="$listeners"
@@ -48,6 +49,10 @@ export default {
       type: String,
       default: '',
     },
+    borderRadius: {
+      type: String,
+      default: '4px',
+    },
   },
 }
 </script>
@@ -61,6 +66,7 @@ export default {
     font-size: var(--font-size);
     line-height: var(--line-height);
     padding: var(--padding);
+    border-radius: var(--border-radius);
     &,
     &:hover,
     &:focus {
