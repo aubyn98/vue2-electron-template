@@ -9,6 +9,7 @@
       '--padding': padding,
       '--font-size': fontSize,
       '--color': color,
+      '--placeholder-color': placeholderColor,
       '--focus-color': focusColor || color,
       '--border-radius': borderRadius,
     }"
@@ -45,6 +46,10 @@ export default {
       type: String,
       default: '#505050',
     },
+    placeholderColor: {
+      type: String,
+      default: '#b2b2b2',
+    },
     focusColor: {
       type: String,
       default: '',
@@ -78,7 +83,7 @@ export default {
     }
     &::placeholder {
       font-size: var(--font-size);
-      color: #b2b2b2;
+      color: var(--placeholder-color);
     }
   }
   .el-input {
