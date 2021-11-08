@@ -2,7 +2,7 @@
   <div class="form-checkbox pointer" :class="{ _disabled: disabled }" :style="{ lineHeight: width }" @click="!disabled && change()">
     <quick-img :style="{ width, height: width }" class="_icon" name="icon_gxk" v-show="!value" />
     <quick-img :style="{ width, height: width }" class="_icon" name="icon_gxk2" v-show="value" />
-    <label class="_label" :style="{ fontSize, marginLeft: labelMrl, color }" v-if="label">{{ label }}</label>
+    <label class="_label pointer" :style="{ fontSize, marginLeft: labelMrl, color }" v-if="label">{{ label }}</label>
   </div>
 </template>
 
