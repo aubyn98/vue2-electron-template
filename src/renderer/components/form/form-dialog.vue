@@ -2,7 +2,7 @@
   <el-dialog
     ref="dialog"
     class="formDialog"
-    :class="{ _modal: modal }"
+    :class="{ _modal: modal, _positionCenter: positionCenter }"
     custom-class="formDialogContent"
     v-bind="$attrs"
     v-on="$listeners"
@@ -51,6 +51,11 @@ export default {
       default: true,
     },
     modal: {
+      type: Boolean,
+      default: false,
+    },
+    // 整体内容居中
+    positionCenter: {
       type: Boolean,
       default: false,
     },
@@ -219,6 +224,20 @@ $color-bor: #f5f5f5;
 
   .formDialogContent.el-dialog {
     box-shadow: 0px 0px 10px 0px rgba(213, 220, 224, 0.5), 0px 1px 0px 0px #f5f5f5;
+  }
+
+  &.center {
+    .formDialogContent.el-dialog {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &._positionCenter {
+    .formDialogContent.el-dialog {
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
 
   .el-dialog__header {
