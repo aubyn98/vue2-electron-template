@@ -3,6 +3,7 @@
     ref="dialog"
     class="formDialog"
     :class="{ _modal: modal, _positionCenter: positionCenter }"
+    :style="{ '--radius': radius, '--background': background }"
     custom-class="formDialogContent"
     v-bind="$attrs"
     v-on="$listeners"
@@ -66,6 +67,16 @@ export default {
     confirmText: {
       type: String,
       default: '确定',
+    },
+    // 背景
+    background: {
+      type: String,
+      default: '#fff',
+    },
+    // 圆角
+    radius: {
+      type: String,
+      default: '4px',
     },
     // 内容最大高度
     maxHeight: {
@@ -223,6 +234,9 @@ $color-bor: #f5f5f5;
   }
 
   .formDialogContent.el-dialog {
+    background: var(--background);
+    border-radius: var(--radius);
+    overflow: hidden;
     box-shadow: 0px 0px 10px 0px rgba(213, 220, 224, 0.5), 0px 1px 0px 0px #f5f5f5;
   }
 
@@ -258,7 +272,6 @@ $color-bor: #f5f5f5;
     text-align: LEFT;
     color: #333333;
     line-height: 24px;
-    border-radius: 4px 4px 0px 0px;
     &._move {
       cursor: move;
     }
@@ -283,7 +296,6 @@ $color-bor: #f5f5f5;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border-radius: 0px 0px 4px 4px;
     &._border {
       border-top: 1px solid $color-bor;
     }
