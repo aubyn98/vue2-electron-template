@@ -33,9 +33,21 @@ export default {
     font-size: 13px;
     padding: 0 var(--_height);
   }
-  .el-input-number__increase:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled),
-  .el-input-number__decrease:hover:not(.is-disabled) ~ .el-input .el-input__inner:not(.is-disabled) {
-    border-color: $bor-c;
+  &:not(.is-disabled) {
+    .el-input-number__increase,
+    .el-input-number__decrease {
+      &:not(.is-disabled) {
+        background-color: #fff;
+      }
+    }
+  }
+  .el-input-number__increase:not(.is-disabled),
+  .el-input-number__decrease:not(.is-disabled) {
+    &:hover {
+      ~ .el-input .el-input__inner:not(.is-disabled) {
+        border-color: $bor-c;
+      }
+    }
   }
   .el-input-number__increase,
   .el-input-number__decrease {
