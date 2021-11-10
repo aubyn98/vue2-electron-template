@@ -36,9 +36,9 @@ export default {
   &:not(.is-disabled) {
     .el-input-number__increase,
     .el-input-number__decrease {
-      &:not(.is-disabled) {
-        background-color: #fff;
-      }
+      // &:not(.is-disabled) {
+      background-color: #fff;
+      // }
     }
   }
   .el-input-number__increase:not(.is-disabled),
