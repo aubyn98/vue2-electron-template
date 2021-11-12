@@ -4,7 +4,7 @@ export function throttle(func, wait = 500, immediate = true) {
     ? function (...argvs) {
         if (flag) return
         flag = true
-        typeof func === 'function' && func(...argvs)
+        typeof func === 'function' && func.apply(this, argvs)
         setTimeout(() => {
           flag = false
         }, wait)
@@ -14,7 +14,7 @@ export function throttle(func, wait = 500, immediate = true) {
         flag = true
         setTimeout(() => {
           flag = false
-          typeof func === 'function' && func(...argvs)
+          typeof func === 'function' && func.apply(this, argvs)
         }, wait)
       }
 }
