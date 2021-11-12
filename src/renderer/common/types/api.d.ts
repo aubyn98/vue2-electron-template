@@ -4,6 +4,7 @@ import addEventListener from '../utils/addEventListener'
 import compose from '../utils/compose'
 import log from '../utils/compose'
 import debounce from '../utils/debounce'
+import throttle from '../utils/throttle'
 import { request } from '../utils/http'
 interface Api {
   [index: string]: (params: any) => Promise<{
@@ -18,6 +19,7 @@ interface Utils {
   compose: typeof compose
   log: typeof log
   debounce: typeof debounce
+  throttle: typeof throttle
   addEventListener: typeof addEventListener
   storage: Storage
   http: typeof request
