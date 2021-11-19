@@ -15,7 +15,7 @@ export function Info(opts) {
     },
   })
   instance.$mount()
-  document.body.append(instance.$el)
+  document.body.appendChild(instance.$el)
   instance.visible = true
 }
 ;['success', 'error'].forEach(type => {
