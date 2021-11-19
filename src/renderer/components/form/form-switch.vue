@@ -15,7 +15,7 @@
     }"
     @click="!disabled && $emit('input', !value)"
   >
-    <span >
+    <span>
       <slot>{{ text }}</slot>
     </span>
   </div>
