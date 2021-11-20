@@ -41,7 +41,6 @@ export default {
   props: {
     relativeTo: {
       type: String,
-      default: 'page-view',
     },
     title: {
       type: String,
@@ -132,10 +131,13 @@ export default {
     '$attrs.visible'(val) {
       if (val) {
         this.$nextTick(() => {
-          const { top, left } = document.getElementById(this.relativeTo).getBoundingClientRect()
+          const relativeTo = this.relativeTo
+          const parentEl = relativeTo ? document.getElementById(this.relativeTo) : document.body
+          const { top, left } = parentEl.getBoundingClientRect()
           const body = document.body.style
           body.setProperty('--formDialogTop', top + 'px')
           body.setProperty('--formDialogLeft', left + 'px')
+          body.setProperty('--v-modal', this.modal ? 0.1 : 0)
         })
       }
     },
@@ -149,7 +151,6 @@ export default {
     }
   },
   mounted() {
-    document.body.style.setProperty('--v-modal', this.modal ? 0.5 : 0)
     document.addEventListener('mousemove', this.mousemove)
     document.addEventListener('mouseup', this.mouseup)
   },
