@@ -15,7 +15,7 @@
       ref="header"
       @mousedown="mousedown"
       class="_custom-header select-none"
-      :class="{ _border: !headerShadow, _shadow: headerShadow, _move: drag }"
+      :class="{ _border: !headerShadow, _shadow: headerShadow, _move: canDrag }"
       :style="headerStyle"
       v-if="header"
     >
