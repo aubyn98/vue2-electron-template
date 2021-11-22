@@ -7,6 +7,8 @@
       '--padding': padding,
       '--font-size': fontSize,
       '--color': color,
+      '--background': background,
+      '--border': border,
       '--placeholder-color': placeholderColor,
       '--focus-color': focusColor || color,
       '--border-radius': borderRadius,
@@ -43,6 +45,12 @@ export default {
       type: String,
       default: '#505050',
     },
+    background: {
+      default: '#282828',
+    },
+    border: {
+      default: 'none',
+    },
     placeholderColor: {
       type: String,
       default: '#b2b2b2',
@@ -69,6 +77,8 @@ export default {
     line-height: var(--line-height);
     padding: var(--padding);
     border-radius: var(--border-radius);
+    border: var(--border);
+    background: var(--background);
     &,
     &:hover,
     &:focus {

@@ -4,10 +4,10 @@
     :class="{ _flex: flex, 'not-label': !label }"
     v-bind="$attrs"
     v-on="$listeners"
-    :style="{ 'margin-bottom': mrb }"
+    :style="{ 'margin-bottom': mrb, '--label-margin': labelMargin, '--label-padding': labelPadding, '--label-line-height': labelLineHeight }"
   >
     <template #label>
-      <p class="_label" :style="{ lineHeight: labelLineHeight }">
+      <p class="_label" :style="[{ lineHeight: labelLineHeight, color: labelColor, fontSize: labelFontSize }, labelStyle]">
         <slot name="label" :label="label">{{ label }}</slot>
       </p>
     </template>
@@ -19,9 +19,29 @@
 export default {
   props: {
     label: String,
+    labelStyle: {
+      type: Object,
+      default: () => ({}),
+    },
+    labelColor: {
+      type: String,
+      default: '#f3f3f3;',
+    },
+    labelFontSize: {
+      type: String,
+      default: '14px',
+    },
+    labelMargin: {
+      type: String,
+      default: '0',
+    },
+    labelPadding: {
+      type: String,
+      default: '0 16px 0 0',
+    },
     labelLineHeight: {
       type: String,
-      default: '36px',
+      default: '40px',
     },
     mrb: {
       type: String,
@@ -40,10 +60,18 @@ export default {
 .form-el-item::v-deep.el-form-item {
   ._label {
     display: inline-block;
-    color: #505050;
   }
   &.el-form-item--small {
+    .el-form-item__label {
+      margin: var(--label-margin);
+      padding: var(--label-padding);
+      line-height: var(--label-line-height);
+      &::before {
+        color: #ff2c2c;
+      }
+    }
     .el-form-item__content {
+      line-height: var(--label-line-height);
     }
   }
   &._flex {
