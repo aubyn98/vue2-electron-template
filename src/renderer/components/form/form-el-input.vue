@@ -8,9 +8,9 @@
       '--font-size': fontSize,
       '--color': color,
       '--background': background,
-      '--border': border,
       '--placeholder-color': placeholderColor,
       '--focus-color': focusColor || color,
+      '--border-color': borderColor,
       '--border-radius': borderRadius,
     }"
     class="form-el-input"
@@ -46,10 +46,8 @@ export default {
       default: '#505050',
     },
     background: {
+      type: String,
       default: '#282828',
-    },
-    border: {
-      default: 'none',
     },
     placeholderColor: {
       type: String,
@@ -58,6 +56,10 @@ export default {
     focusColor: {
       type: String,
       default: '',
+    },
+    borderColor: {
+      type: String,
+      default: '#f0f0f0',
     },
     borderRadius: {
       type: String,
@@ -69,7 +71,6 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep.form-el-input {
-  $border-color: #f0f0f0;
   @mixin Pseudo {
     height: var(--height);
     color: var(--color);
@@ -82,7 +83,7 @@ export default {
     &,
     &:hover,
     &:focus {
-      border-color: $border-color;
+      border-color: var(--border-color);
     }
     &:hover,
     &:focus {
