@@ -7,14 +7,14 @@
       height,
       margin,
       padding,
-      lineHeight,
       borderRadius: radius,
       '--radio-width': radioWidth,
       '--radio-inner-width': radioInnerWidth,
       '--active-color': activeColor,
       '--border-color': borderColor,
-      '--label-color': labelColor || '#505050',
+      '--label-color': labelColor || '#fff',
       '--label-active-color': labelActiveColor || labelColor || activeColor,
+      '---line-height': lineHeight,
       '--label-left': labelLeft,
       '--font-size': fontSize,
     }"
@@ -38,11 +38,11 @@ export default {
     },
     height: {
       type: String,
-      default: '36px',
+      default: 'auto',
     },
     lineHeight: {
       type: String,
-      default: '20px',
+      default: '22px',
     },
     margin: {
       type: String,
@@ -50,7 +50,7 @@ export default {
     },
     padding: {
       type: String,
-      default: '2px 14px',
+      default: '0px 2px',
     },
     // 整体圆角
     radius: {
@@ -69,7 +69,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: '#04aa58',
+      default: '#206ef7',
     },
     borderColor: {
       type: String,
@@ -82,11 +82,11 @@ export default {
     // label 与 radio的间距
     labelLeft: {
       type: String,
-      default: '14px',
+      default: '10px',
     },
     fontSize: {
       type: String,
-      default: '13px',
+      default: '14px',
     },
   },
 }
@@ -102,6 +102,7 @@ export default {
   }
   .el-radio__label {
     flex: 1;
+    line-height: var(---line-height);
     font-size: var(--font-size);
     color: var(--label-color);
     padding-left: var(--label-left);
@@ -112,6 +113,7 @@ export default {
     width: var(--radio-width);
     height: var(--radio-width);
     border-color: var(--border-color);
+    background-color: transparent;
   }
 
   &.is-checked {
