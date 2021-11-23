@@ -1,7 +1,7 @@
 <template>
   <el-form-item
     class="form-el-item"
-    :class="{ _flex: flex, 'not-label': !label }"
+    :class="{ _flex: flex, 'not-label': !label, hideError }"
     v-bind="$attrs"
     v-on="$listeners"
     :style="{ 'margin-bottom': mrb, '--label-margin': labelMargin, '--label-padding': labelPadding, '--label-line-height': labelLineHeight }"
@@ -51,12 +51,17 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideError: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {},
 }
 </script>
 
 <style lang="scss" scoped>
+$error-color: #ff2c2c;
 .form-el-item::v-deep.el-form-item {
   ._label {
     display: inline-block;
@@ -67,11 +72,17 @@ export default {
       padding: var(--label-padding);
       line-height: var(--label-line-height);
       &::before {
-        color: #ff2c2c;
+        color: $error-color;
       }
     }
     .el-form-item__content {
       line-height: var(--label-line-height);
+    }
+    .el-form-item__error {
+      color: $error-color;
+    }
+    &.hideError .el-form-item__error {
+      display: none;
     }
   }
   &._flex {
