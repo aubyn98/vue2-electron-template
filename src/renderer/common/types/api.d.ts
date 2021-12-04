@@ -5,6 +5,9 @@ import compose from '../utils/compose'
 import log from '../utils/compose'
 import debounce from '../utils/debounce'
 import throttle from '../utils/throttle'
+import copy from '../utils/copy'
+import getFile from '../utils/getFile'
+import Str from '../utils/str'
 import { request } from '../utils/http'
 interface Api {
   [index: string]: (params: any) => Promise<{
@@ -16,6 +19,9 @@ interface Api {
 }
 
 interface Utils {
+  str:Str
+  getFile: typeof getFile
+  copy: typeof copy
   compose: typeof compose
   log: typeof log
   debounce: typeof debounce
