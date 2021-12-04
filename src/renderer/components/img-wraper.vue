@@ -44,6 +44,8 @@ export default {
   align-items: center;
   justify-content: center;
   .el-image__inner {
+    width: auto;
+    height: auto;
     max-width: var(--max-width);
     max-height: var(--max-height);
   }
