@@ -1,5 +1,5 @@
 <template>
-  <el-image class="img-wraper" v-bind="$attrs" v-on="$listeners" :fit="fit" :class="{ 'lazy-img-border': border }" :style="imgStyle">
+  <el-image class="img-wraper" v-bind="$attrs" v-on="$listeners" :fit="fit" :class="{ isAuto, 'lazy-img-border': border }" :style="imgStyle">
     <div slot="placeholder" class="error-image-slot flex justify-center items-center">
       <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -27,6 +27,7 @@ export default {
       type: String,
       default: 'contain',
     },
+    isAuto: Boolean,
     maxHeight: String,
     maxWidth: String,
   },
@@ -44,10 +45,14 @@ export default {
   align-items: center;
   justify-content: center;
   .el-image__inner {
-    width: auto;
-    height: auto;
     max-width: var(--max-width);
     max-height: var(--max-height);
+  }
+  &.isAuto {
+    .el-image__inner {
+      width: auto;
+      height: auto;
+    }
   }
   .error-image-slot {
     width: 100%;
