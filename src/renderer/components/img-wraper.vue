@@ -1,5 +1,5 @@
 <template>
-  <el-image v-bind="$attrs" v-on="$listeners" :fit="fit" :class="{ 'lazy-img-border': border }" :lazy="lazy">
+  <el-image class="img-wraper" v-bind="$attrs" v-on="$listeners" :fit="fit" :class="{ 'lazy-img-border': border }" :style="imgStyle">
     <div slot="placeholder" class="error-image-slot flex justify-center items-center">
       <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -23,29 +23,42 @@ export default {
       type: Boolean,
       default: false,
     },
-    lazy: {
-      type: Boolean,
-      default: true,
-    },
     fit: {
       type: String,
       default: 'contain',
+    },
+    maxHeight: String,
+    maxWidth: String,
+  },
+  computed: {
+    imgStyle() {
+      const { maxWidth, maxHeight } = this
+      return { ...(maxWidth && { '--max-width': maxWidth }), ...(maxHeight && { '--max-height': maxHeight }) }
     },
   },
 }
 </script>
 <style lang="scss" scoped>
-/deep/.error-image-slot {
-  width: 100%;
-  height: 100%;
-  background: #f5f5f5;
-  svg {
-    fill: #dcdde0;
-    width: 22%;
-    height: 22%;
+.img-wraper::v-deep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .el-image__inner {
+    max-width: var(--max-width);
+    max-height: var(--max-height);
   }
-}
-.lazy-img-border {
-  border: 1px solid #f5f5f5;
+  .error-image-slot {
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    svg {
+      fill: #dcdde0;
+      width: 22%;
+      height: 22%;
+    }
+  }
+  .lazy-img-border {
+    border: 1px solid #f5f5f5;
+  }
 }
 </style>
