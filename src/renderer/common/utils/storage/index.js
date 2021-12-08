@@ -1,6 +1,6 @@
 export function getItem(target, name, defaultVal) {
-  if (typeof defaultVal === 'object') defaultVal = defaultVal.toString()
-  return JSON.parse(target.getItem(name) || defaultVal)
+  const val = target.getItem(name)
+  return val ? JSON.parse(val) : defaultVal
 }
 export function setItem(target, name, val) {
   return target.setItem(name, JSON.stringify(val))
