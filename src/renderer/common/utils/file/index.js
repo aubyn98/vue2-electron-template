@@ -65,4 +65,9 @@ export async function getImgFile(opts = { multiple: false }) {
   }
 }
 
-export default getFile
+export default {
+  readAsDataURL,
+  getFile,
+  imgFilesHandle,
+  getImgFile,
+}

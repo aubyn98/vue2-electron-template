@@ -3,7 +3,8 @@
     "target": "es5",
     "strict": true,
     "module": "es2015",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["./src/renderer/common/types", "node_modules/element-ui", "node_modules/vue-router"]
+  "include": ["./src/renderer/common/types", "./src/renderer/common/utils", "node_modules/element-ui", "node_modules/vue-router"]
 }
