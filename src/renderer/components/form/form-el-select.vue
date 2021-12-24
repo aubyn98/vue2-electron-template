@@ -98,6 +98,7 @@ export default {
   }
   .el-input {
     .el-select__caret {
+      line-height: var(--height);
       color: #808080;
     }
     .el-input__inner {

@@ -35,7 +35,7 @@ export default {
     },
     padding: {
       type: String,
-      default: '8px 12px',
+      default: '7px 12px',
     },
     fontSize: {
       type: String,

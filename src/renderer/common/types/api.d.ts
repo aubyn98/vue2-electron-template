@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { Storage } from 'utils/storage'
-import addEventListener from 'utils/addEventListener'
+import EventListener from 'utils/EventListener'
 import compose from 'utils/compose'
 import log from 'utils/compose'
 import debounce from 'utils/debounce'
@@ -30,7 +30,7 @@ interface Utils {
   log: typeof log
   debounce: typeof debounce
   throttle: typeof throttle
-  addEventListener: typeof addEventListener
+  EventListener: typeof EventListener
   storage: Storage
   http: typeof request
 }

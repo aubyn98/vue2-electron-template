@@ -21,7 +21,13 @@
     >
       <slot name="header">
         <div @mousedown.stop class="_title">{{ title }}</div>
-        <quick-img @mousedown.stop v-if="showClose" class="_close pointer" name="icon_shutdown@2x" @click="$emit('update:visible', false)" />
+        <quick-img
+          @mousedown.stop
+          v-if="showClose"
+          class="_close pointer"
+          name="icon_shutdown@2x"
+          @click="$emit('update:visible', false), $emit('close')"
+        />
       </slot>
     </div>
     <div class="_custom-content" :style="[{ maxHeight }, contentStyle]">
