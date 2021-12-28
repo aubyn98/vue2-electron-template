@@ -74,6 +74,7 @@ export default {
 
 <style lang="scss" scoped>
 .form-el-select::v-deep.el-select {
+  height: var(--height);
   @mixin Pseudo {
     height: var(--height);
     color: var(--color);

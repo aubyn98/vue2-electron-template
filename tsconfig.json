@@ -6,5 +6,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["./src/renderer/common/types", "./src/renderer/common/utils", "node_modules/element-ui", "node_modules/vue-router"]
+  "include": [
+    "./src/renderer/common/types",
+    "./src/renderer/common/pollify",
+    "./src/renderer/common/utils",
+    "node_modules/element-ui",
+    "node_modules/vue-router"
+  ]
 }

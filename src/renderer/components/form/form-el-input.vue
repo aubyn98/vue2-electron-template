@@ -71,6 +71,7 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep.form-el-input {
+  height: var(--height);
   @mixin Pseudo {
     height: var(--height);
     color: var(--color);
