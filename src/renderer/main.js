@@ -1,4 +1,4 @@
-import '@/common/pollify'
+import './common/pollify'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
