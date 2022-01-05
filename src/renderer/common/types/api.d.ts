@@ -11,6 +11,7 @@ import str from 'utils/str'
 import date from 'utils/date'
 import object from 'utils/object'
 import timer from 'utils/timer'
+import mainProcess from 'utils/mainProcess'
 import { request } from 'utils/http'
 interface Api {
   [index: string]: (params: any) => Promise<{
@@ -22,6 +23,7 @@ interface Api {
 }
 
 interface Utils {
+  mainProcess: typeof mainProcess
   timer: typeof timer
   object: typeof object
   date: typeof date
