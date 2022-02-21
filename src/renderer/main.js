@@ -6,7 +6,7 @@ import store from './store'
 
 // common -------------------
 import plugins from 'plugins'
-import 'styles'
+import 'styles/index.scss'
 // --------------------------
 Vue.config.productionTip = false
 Vue.use(plugins)

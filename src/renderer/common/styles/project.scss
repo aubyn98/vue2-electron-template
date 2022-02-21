@@ -1,0 +1,32 @@
+// --------------------electron 应用拖拽--------------------------
+
+.app-drag {
+  -webkit-app-region: drag;
+}
+
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+// --------------------------------------------------------------
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: #666;
+  font: 16px / 1 'Microsoft YaHei', 'Microsoft YaHei-Regular';
+  word-break: break-all;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
